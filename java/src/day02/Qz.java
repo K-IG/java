@@ -7,7 +7,7 @@ public class Qz {
 		System.out.print("성적을 입력해 주세요:");
 		int a;
 		a = sc.nextInt();
-		if(a>= 90) {
+		if(a>= 90) { 
 			System.out.println("A");
 		}
 		else if(a>= 80){
@@ -24,3 +24,5 @@ public class Qz {
 	}
 
 }
+
+
