@@ -1,4 +1,6 @@
-package day10;
+         package day10;
+
+import java.awt.Menu;
 
 public class StringClass2 {
 
@@ -17,15 +19,33 @@ class Quiz2{
 	 int num;       
 	 public int price;  
 	
+	@SuppressWarnings("null")
 	public void go(String info) {
-		int idx = 0;
-		idx = info.indexOf("STAname");
-		Name.subSequence(idx, idx+1);
-		System.out.println("아메리카노");
+		int idx = info.indexOf("name=");
+		Name.subSequence(idx +5, idx+8);
+		String munuCode = null;
+		if(munuCode.equals("A01")) {
+			munuCode = "아메리카노";
+		}
+		else if(munuCode.equals("A03")) {
+			munuCode = "카푸치노";
+		}
+		else if (munuCode.equals("A04")) {
+			munuCode = "카페라떼";
+		}
+		else if (munuCode.equals("E01")) {
+			munuCode = "오렌지 주스";			
+		}
+		idx = info.indexOf("num=");
+		String numCode = info.substring(idx +4, idx +6);
+		int num = Integer.parseInt(numCode);
 		
 		idx = info.indexOf("price");
-		this.price = price;
-		System.out.println(2000);
+		String priceCode = info.substring(idx +6, num +12);
+		System.out.println(priceCode);
+		
+		System.out.println(Name+ " " + num+"잔 주문" + price*num+"원");
+		
 	
 			
 		
