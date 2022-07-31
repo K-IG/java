@@ -15,20 +15,30 @@
 </head>
 <body>
 
-<div class="container"></div>
-<div class="input-group input-group-sm mb-3">
-  <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 card">
+				<h1 class="text-center">유저정보 수정</h1>
+				<div class="card-body"></div>
+					<!-- input을 하기 위해선 form을 만들어야함 -->
+					<form th:action="@{/{id}/ (id=${user.id})}" th:object="${user}" method="POST">
+						<div class="form-group">
+						<label>이름</label>
+						<input type="text" name="first_name" th:field="*{first_name}">
+						<label>성</label>
+						<input type="text" name="Last_name" th:field="*{Last_name}">
+						<label>이메일</label>
+						<input type="text" name="email" th:field="*{email}">
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">수정하기</button>	
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
-<div class="input-group mb-3">
-  <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-</div>
 
-<div class="input-group input-group-lg">
-  <span class="input-group-text" id="inputGroup-sizing-lg">Large</span>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-</div>
+
 </body>
 </html>
