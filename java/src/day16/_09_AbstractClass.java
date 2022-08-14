@@ -21,3 +21,10 @@ public void go() {
 }
 
 }
+
+
+//git init
+// git config --global user.name "내 깃허브 유저 네임"
+//git config --global user.email "내 깃허브 유저 네임"
+
+//git remote add origin 깃허브URL
