@@ -32,7 +32,7 @@ public class BoardController {
 		}
 		
 		@PostMapping("/")
-		public String saveUserr(@ModelAttribute("user")User user) {
+		public String saveUser(@ModelAttribute("user")User user) {
 			userService.saveUser(user);
 		return "redirect:/";				// 입력완료 후 localhost:8085/로 이동
 		}
@@ -45,7 +45,7 @@ public class BoardController {
 		@PostMapping("/{id}")
 		public String updateUser(@PathVariable Long id, @ModelAttribute("user") User user,Model model) {
 			// 받은 id를 통해서 mysql에서 정보를 가져옴
-			 User dbUser = userService.getUserById(id);
+			 User dbUser = userService.getUserById(id);	
 			 dbUser.setFirst_name(user.getFirst_name());
 			 dbUser.setLast_name(user.getLast_name());
 			 dbUser.setEmail(user.getEmail());
@@ -53,8 +53,14 @@ public class BoardController {
 			 userService.updateUser(dbUser);
 			 return "redirect:/";			//localhost:8085/로 돌아감
 		}
-		
-		
+		 
+		@GetMapping("/new")
+		public String registerUser(Model model) {
+			// Model model : html에 java값을 전달할 수 있는 객체(변수)
+			User user = new User();
+			model.addAttribute("user", user);
+			return "new"; 			//new.html 을 열어라
+		}
 		
 		
 		
